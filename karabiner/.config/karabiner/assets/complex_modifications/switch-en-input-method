@@ -1,0 +1,34 @@
+{
+  "title": "Esc : En-Input-Method",  
+
+    "rules": [
+      {
+        "description": "Switch En input method with Esc key",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "escape"
+            },
+            "to": [
+              {
+                "key_code": "spacebar",
+                "modifiers": ["left_control"]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "input_source_unless",
+                "input_sources": [
+                  {
+                    "language": "en"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  
+}

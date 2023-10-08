@@ -114,8 +114,8 @@ source $ZSH/oh-my-zsh.sh
 bindkey "ç" fzf-cd-widget                                       
 source "/opt/homebrew/Cellar/fzf/0.42.0/shell/key-bindings.zsh"
 
-To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh 
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh 
 ########################## 🔼 LOAD OTHER CONFIGS 🔼 ##########################
 
 
