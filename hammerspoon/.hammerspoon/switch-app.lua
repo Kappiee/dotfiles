@@ -1,12 +1,15 @@
 -- Define the keyboard shortcut to switch to Chrome
 local hyperKey = { "shift", "alt", "ctrl", "cmd" }
 local shortcuts = {
-	["wezTerm"] = "k",
-	["Arc"] = "o",
-	["Obsidian"] = "j",
-	["Finder"] = "l",
-	["Visual Studio Code"] = "m", -- this is Visual Studio Code
-	["Intellij IDEA"] = "i",
+	["wezTerm"] = "t",
+	["Obsidian"] = "o",
+	["Visual Studio Code"] = "v", -- this is Visual Studio Code
+	["微信"] = "w",
+	["Microsoft Edge"] = "e",
+	["Google Chrome"] = "g",
+	["ChatGPT"] = "c",
+	-- ["ChatGPT"] = "c",
+	-- ["ChatGPT"] = "c",
 }
 
 local function switchTo(appName)

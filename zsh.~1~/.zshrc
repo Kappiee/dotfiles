@@ -6,9 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ########################## 🔽 ENV 🔽 ###########################
-# export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home"
-# export M2_HOME="$HOME/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3"
-# export GOPATH=$HOME/go
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home"
+export M2_HOME="$HOME/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3"
+export GOPATH=$HOME/go
 export LANG=en_US.UTF-8
 export EDITOR="nvim"
 export TMUX_TMPDIR=~/.tmux
@@ -34,7 +34,7 @@ paths=(
 /opt/local/bin
 /opt/local/sbin
 ${HOME}/.local/bin
-# ${HOME}/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3/bin
+${HOME}/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3/bin
 ${HOME}/go/bin
 ${HOME}/.cargo/bin
 /opt/local/lib/postgresql15/bin
@@ -55,7 +55,7 @@ autoload -U colors && colors
 # Basic auto/tab complete:
 autoload bashcompinit && bashcompinit
 autoload -U compinit
-# zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 # put the custom completions here: /usr/local/share/zsh/site-functions
@@ -114,7 +114,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey "ç" fzf-cd-widget                                       
 source "/opt/homebrew/Cellar/fzf/0.42.0/shell/key-bindings.zsh"
 
-To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh 
 ########################## 🔼 LOAD OTHER CONFIGS 🔼 ##########################
 
@@ -127,20 +127,20 @@ To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 ########################## 🔼 NVM 🔼 ##########################
 
 ########################## 🔽 ALIAS 🔽 ###########################
-# alias chat="nvim -c 'lua require(\"scratch\").scratchByType(\"gp4.md\")'"
+alias chat="nvim -c 'lua require(\"scratch\").scratchByType(\"gp4.md\")'"
 alias vim="nvim"
-# alias gp!="git push --no-verify"
-# alias v="lvim +\"Telescope oldfiles\""
-# alias glog="git log --pretty=format:'%C(auto)%h%C(blue) %<|(19)%as%C(auto)%d %s' --graph"
-# alias kc="kubectl"
-# alias python="python3"
-# alias gitsync="$HOME/Documents/Git-Sync/sync.sh"
-# alias df='vim +DiffviewOpen'
-# alias lm="limactl"
-# alias lt="lsgo | head -n 30"
-# alias gonew="source go-new"
-# alias awsprofileswither="source aws-profile-switcher"
-# alias kl="minikube kubectl --"
+alias gp!="git push --no-verify"
+alias v="lvim +\"Telescope oldfiles\""
+alias glog="git log --pretty=format:'%C(auto)%h%C(blue) %<|(19)%as%C(auto)%d %s' --graph"
+alias kc="kubectl"
+alias python="python3"
+alias gitsync="$HOME/Documents/Git-Sync/sync.sh"
+alias df='vim +DiffviewOpen'
+alias lm="limactl"
+alias lt="lsgo | head -n 30"
+alias gonew="source go-new"
+alias awsprofileswither="source aws-profile-switcher"
+alias kl="minikube kubectl --"
 
 ########################## 🔼 ALIAS 🔼 ##########################
 

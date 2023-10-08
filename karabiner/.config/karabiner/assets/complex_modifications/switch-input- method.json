@@ -1,0 +1,36 @@
+{
+    "title": "RightShift : control+space",                
+    "rules": [
+        {
+            "manipulators": [
+                {
+                    "description": "Change left_shift to control+space when used alone",
+                    "from": {
+                        "key_code": "left_shift",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to_if_alone": [
+                        {
+                            "key_code": "spacebar",
+                            "modifiers": [
+                                    "left_control"
+                            ]
+                        }
+                    ],
+                    "to": [
+                        {
+                            "key_code": "left_shift"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+
+
+}
