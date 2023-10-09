@@ -8,7 +8,7 @@ local shortcuts = {
 	["Microsoft Edge"] = "e",
 	["Google Chrome"] = "g",
 	["ChatGPT"] = "c",
-	-- ["ChatGPT"] = "c",
+	["Rider"] = "r",
 	-- ["ChatGPT"] = "c",
 }
 
