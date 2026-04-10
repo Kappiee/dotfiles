@@ -4,13 +4,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # 加载所有模块（按文件名顺序）
-for _f in "$HOME"/.zshrc.d/*.zsh; do
-  source "$_f"
-done
+for _f in "$HOME"/.zshrc.d/*.zsh; do source "$_f"; done
+# 加载机器专属模块（custom submodule stow 到 ~/.zshrc.d/local/）
+for _f in "$HOME"/.zshrc.d/local/*.zsh; do [[ -f "$_f" ]] && source "$_f"; done
 unset _f
-
-# 机器专属配置（不进仓库，各机器自行维护）
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # p10k 主题 — 必须在文件最末尾
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
