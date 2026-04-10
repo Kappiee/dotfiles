@@ -93,3 +93,11 @@ fi
 
 echo ""
 success "Rebuild complete."
+
+# ── pm context 检查 ───────────────────────────────────────────────────────────
+PM_ACTIVE="$HOME/.config/pm/active"
+if [[ -f "$PM_ACTIVE" ]]; then
+  success "pm context: $(cat "$PM_ACTIVE")"
+else
+  warn "pm context not set. Run: pm context use <name>"
+fi
