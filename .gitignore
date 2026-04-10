@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+
+# Karabiner 自动备份（频繁变动，无需追踪）
+karabiner/.config/karabiner/automatic_backups/
+
+# 机器专属配置由 custom/ submodule 管理
