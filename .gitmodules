@@ -1,3 +1,0 @@
-[submodule "custom"]
-	path = custom
-	url = git@github.com:Kappiee/dotfiles-local.git

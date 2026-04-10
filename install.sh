@@ -57,19 +57,13 @@ else
   success "zsh-autosuggestions already installed"
 fi
 
-# ── custom submodule ─────────────────────────────────────────────────────────
-info "Initializing custom submodule..."
-git -C "$DOTFILES_DIR" submodule update --init --recursive
-success "custom submodule ready"
-
 # ── Symlinks（stow）──────────────────────────────────────────────────────────
-modules=(zsh tmux hammerspoon karabiner custom)
+modules=(zsh tmux hammerspoon karabiner)
 
 for module in "${modules[@]}"; do
   target_check="$DOTFILES_DIR/$module"
   [[ ! -d "$target_check" ]] && continue
 
-  # 检测冲突（目标位置已存在真实文件，非 symlink）
   conflicts=()
   while IFS= read -r -d '' file; do
     rel="${file#$target_check/}"
@@ -97,7 +91,33 @@ for module in "${modules[@]}"; do
   success "Stowed: $module"
 done
 
-# ── .zshrc.local 由 custom submodule stow 管理，无需单独创建 ──────────────────
+# ── dotfiles-local（可选私有配置）────────────────────────────────────────────
+if [[ -n "${DOTFILES_LOCAL_REPO:-}" ]]; then
+  DOTFILES_LOCAL="${DOTFILES_LOCAL:-$HOME/dotfiles-local}"
+  if [[ ! -d "$DOTFILES_LOCAL/.git" ]]; then
+    info "Cloning dotfiles-local..."
+    git clone "$DOTFILES_LOCAL_REPO" "$DOTFILES_LOCAL"
+  else
+    info "Updating dotfiles-local..."
+    git -C "$DOTFILES_LOCAL" pull
+  fi
+
+  info "Setting up pm context..."
+  PM_ACTIVE="$HOME/.config/pm/active"
+  if [[ ! -f "$PM_ACTIVE" ]]; then
+    mkdir -p "$(dirname "$PM_ACTIVE")"
+    echo "zf" > "$PM_ACTIVE"
+    success "pm context set to: zf"
+  else
+    success "pm context already set: $(cat "$PM_ACTIVE")"
+  fi
+
+  stow --target="$HOME" --dir="$DOTFILES_LOCAL" --ignore='pm' --ignore='company' --restow .
+  success "Stowed: dotfiles-local"
+else
+  warn "DOTFILES_LOCAL_REPO not set, skipping private config"
+  warn "To set up: DOTFILES_LOCAL_REPO=git@github.com:Kappiee/dotfiles-local.git bash install.sh"
+fi
 
 echo ""
 success "Done. Open a new terminal or run: source ~/.zshrc"
