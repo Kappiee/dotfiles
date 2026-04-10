@@ -57,6 +57,13 @@ else
   success "zsh-autosuggestions already installed"
 fi
 
+# ── 预展开共享目录（避免 stow folding 冲突）──────────────────────────────────
+# ~/.zshrc.d 需要被 dotfiles 和 dotfiles-local 共享，必须是真实目录
+if [[ -L "$HOME/.zshrc.d" ]]; then
+  rm "$HOME/.zshrc.d"
+fi
+mkdir -p "$HOME/.zshrc.d"
+
 # ── Symlinks（stow）──────────────────────────────────────────────────────────
 modules=(zsh tmux hammerspoon karabiner)
 
